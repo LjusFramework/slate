@@ -23,8 +23,11 @@ bool match = Hash::check(plain, old_hashed);
 if (match && Hash::needs_rehash(old_hashed)) {
   string new_hashed = Hash::make(plain);
   //Store the new one in the database overwriting old_hashed
+} else if (match) {
+  // The user is authenticated
+} else {
+  // The user is not authenticated
 }
-// The user is authenticated
 ```
 
 Password hashing for the Ljus Framework is done using the Argon2 algorithm. This section should not be construed to be the one to use to verify file integrity, for that use Filesystem::hash().
