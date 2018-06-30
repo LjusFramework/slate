@@ -54,14 +54,27 @@ Under the hood, the [reference argon2 implentation](https://github.com/P-H-C/phc
 ### Hash::make
 Parameter | Description
 --------- | -----------
-string plain | The plain text hash
+string plain | The plain text value
+
+Return Type | Description
+----------- | -----------
+std::string | The hashed value
 
 
 ### Hash::check
 Parameter | Description
 --------- | -----------
-string plain | The plain text hash
+string plain | The plain text value
 string hashed | The salted hash, normally stored in a database
+
+### Hash::needs_rehash
+Parameter | Description
+--------- | -----------
+string hashed | The hashed value, to check if it needs rehashing
+
+Return Type | Description
+----------- | -----------
+bool | If it needs rehashing
 
 
 <aside class="success">
