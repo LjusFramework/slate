@@ -5,7 +5,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - cpp
 
 toc_footers:
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/LjusFramework/Ljus'>Check us out on GitHub</a>
+  - Made with ❤️ in Canada
+  - (c) Erik Partridge, 2018 MIT License
 
 includes:
   - errors
@@ -17,10 +19,6 @@ search: true
 
 Welcome to the Ljus Framework! You're one step closer to making your web applications blazingly quick.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
 # Cryptography
 
 ## Password Hashing
@@ -29,13 +27,13 @@ Password hashing for the Ljus Framework is done using the Argon2 algorithm. This
 
 Under the hood, the [argon2 refspec](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
 
-#### Hash::make
+### Hash::make
 Parameter | Description
 --------- | -----------
 string plain | The plain text hash
 
 
-#### Hash::check
+### Hash::check
 Parameter | Description
 --------- | -----------
 string plain | The plain text hash
