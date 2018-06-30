@@ -34,7 +34,7 @@ bool match = Hash::check(password, hashed); // true
 bool needs_rehash = Hash::needs_rehash(hashed); //false
 ```
 
->> Let's look at how to rehash passwords:
+> Let's look at how to rehash passwords:
 
 ```cpp
 string plain = "passw0rd";
@@ -49,7 +49,7 @@ if (match && Hash::needs_rehash(old_hashed)) {
 
 Password hashing for the Ljus Framework is done using the Argon2 algorithm. This section should not be construed to be the one to use to verify file integrity, for that use Filesystem::hash().
 
-Under the hood, the [argon2 refspec](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
+Under the hood, the [reference argon2 implentation](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
 
 ### Hash::make
 Parameter | Description
