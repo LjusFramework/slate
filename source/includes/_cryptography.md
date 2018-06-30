@@ -50,6 +50,11 @@ Parameter | Description
 string plain | The plain text value
 string hashed | The salted hash, normally stored in a database
 
+
+Return Type | Description
+----------- | -----------
+bool | If they match
+
 ### Hash::needs_rehash
 Parameter | Description
 --------- | -----------
