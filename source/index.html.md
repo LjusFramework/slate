@@ -22,28 +22,6 @@ Welcome to the Ljus Framework! You're one step closer to making your web applica
 # Cryptography
 
 ## Password Hashing
-
-Password hashing for the Ljus Framework is done using the Argon2 algorithm. This section should not be construed to be the one to use to verify file integrity, for that use Filesystem::hash().
-
-Under the hood, the [argon2 refspec](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
-
-### Hash::make
-Parameter | Description
---------- | -----------
-string plain | The plain text hash
-
-
-### Hash::check
-Parameter | Description
---------- | -----------
-string plain | The plain text hash
-string hashed | The salted hash, normally stored in a database
-
-
-<aside class="success">
-Be sure to always check if a password needs rehashing, this helps ensure that you won't end up with passwords that aren't properly secured.
-</aside>
-
 > To hash passwords, using the following approach:
 
 ```cpp
@@ -68,4 +46,26 @@ if (match && Hash::needs_rehash(old_hashed)) {
 }
 // The user is authenticated
 ```
+
+Password hashing for the Ljus Framework is done using the Argon2 algorithm. This section should not be construed to be the one to use to verify file integrity, for that use Filesystem::hash().
+
+Under the hood, the [argon2 refspec](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
+
+### Hash::make
+Parameter | Description
+--------- | -----------
+string plain | The plain text hash
+
+
+### Hash::check
+Parameter | Description
+--------- | -----------
+string plain | The plain text hash
+string hashed | The salted hash, normally stored in a database
+
+
+<aside class="success">
+Be sure to always check if a password needs rehashing, this helps ensure that you won't end up with passwords that aren't properly secured.
+</aside>
+
 
