@@ -70,18 +70,28 @@ Be sure to always check if a password needs rehashing, this helps ensure that yo
 </aside>
 
 ## Encryption
+> To encrypt strings, use the following approach:
 ```cpp
 #include "ljus/encryption/Crypt.h"
 
 std::string plain = "encrypt me";
 std::string cipher_text = Crypt::encrypt(plain); //Base64 encoded
 // Do something with your encrypted text 
+```
 
+> To decrypt them, use the following:
+```cpp
 // Now read it
 std::string decrypted = Crypt::decrypt(cipher_text);
 bool plain.compare(decrypted) == 0; // true
 ```
 
+> To encrypt anything else, simply convert to bytes, and then make a string:
+```cpp
+size_t len;
+unsigned char* bytes;
+std::string stringified( reinterpret_cast<char const*>(bytes), len);
+```
 A component to encrypt strings (and anything you can turn into a string), using LibSodium's implementation of the ChaCha20-Poly1305 algorithm.
 
 This is in a fairly stable external state and has been extensively tested using American Fuzzy Lop, however, is still not yet considered production ready.
