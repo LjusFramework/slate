@@ -68,3 +68,44 @@ bool | If it needs rehashing
 <aside class="success">
 Be sure to always check if a password needs rehashing, this helps ensure that you won't end up with passwords that aren't properly secured.
 </aside>
+
+## Encryption
+```cpp
+#include "ljus/encryption/Crypt.h"
+
+std::string plain = "encrypt me";
+std::string cipher_text = Crypt::encrypt(plain); //Base64 encoded
+// Do something with your encrypted text 
+
+// Now read it
+std::string decrypted = Crypt::decrypt(cipher_text);
+bool plain.compare(decrypted) == 0; // true
+```
+
+A component to encrypt strings (and anything you can turn into a string), using LibSodium's implementation of the ChaCha20-Poly1305 algorithm.
+
+This is in a fairly stable external state and has been extensively tested using American Fuzzy Lop, however, is still not yet considered production ready.
+
+The api looks slightly different from Laravel's, and the internals significantly so. Crypt exposes two methods:
+
+<aside class="warning">Never use this with passwords, or any other information that needs to be irreversable.</aside>
+
+### Crypt::encrypt
+Parameter | Description
+--------- | -----------
+string plain | The plain text value
+
+Return Type | Description
+----------- | -----------
+string | The encrypted value
+
+
+### Crypt::decrypt
+Parameter | Description
+--------- | -----------
+string encrypted | The encrypted value
+
+Return Type | Description
+----------- | -----------
+string | The decrypted value
+
