@@ -1,0 +1,2 @@
+#Filesystem
+Ljus' filesystem is designed to be easy to use, exceedingly fast, with no dependencies other than [std::filesystem](https://en.cppreference.com/w/cpp/filesystem). For those coming from Laravel, it should look fairly similar. Right now, only one filesystem is supported (local disk). But an extension for a different filey from the `Ljus::Filesystem` class, can be made to support any disk-like thing.
