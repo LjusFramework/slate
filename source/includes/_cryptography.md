@@ -27,42 +27,13 @@ if (match && Hash::needs_rehash(old_hashed)) {
   // The user is authenticated
 } else {
   // The user is not authenticated
+  //return an error response
 }
 ```
 
 Password hashing for the Ljus Framework is done using the Argon2 algorithm. This section should not be construed to be the one to use to verify file integrity, for that use Filesystem::hash().
 
 Under the hood, the [reference argon2 implentation](https://github.com/P-H-C/phc-winner-argon2) is used. Our C++ wrapper fetches a secure salt from your system's '/dev/urandom', and will automatically handle salting throughout, simply work with the strings you get on either end of the equation.
-
-### Hash::make
-Parameter | Description
---------- | -----------
-string plain | The plain text value
-
-Return Type | Description
------------ | -----------
-std::string | The hashed value
-
-
-### Hash::check
-Parameter | Description
---------- | -----------
-string plain | The plain text value
-string hashed | The salted hash, normally stored in a database
-
-
-Return Type | Description
------------ | -----------
-bool | If they match
-
-### Hash::needs_rehash
-Parameter | Description
---------- | -----------
-string hashed | The hashed value, to check if it needs rehashing
-
-Return Type | Description
------------ | -----------
-bool | If it needs rehashing
 
 
 <aside class="success">
@@ -103,23 +74,4 @@ This is in a fairly stable external state and has been extensively tested using 
 The api looks slightly different from Laravel's, and the internals significantly so. Crypt exposes two methods:
 
 <aside class="warning">Never use this with passwords, or any other information that needs to be irreversable.</aside>
-
-### Crypt::encrypt
-Parameter | Description
---------- | -----------
-string plain | The plain text value
-
-Return Type | Description
------------ | -----------
-string | The encrypted value
-
-
-### Crypt::decrypt
-Parameter | Description
---------- | -----------
-string encrypted | The encrypted value
-
-Return Type | Description
------------ | -----------
-string | The decrypted value
 
